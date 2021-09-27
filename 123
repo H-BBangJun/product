@@ -1,0 +1,37 @@
+productpublic class productjava{
+    public static int randomNum;
+    public static Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Random random = new Random();
+        randomNum = random.nextInt(256);
+        //랜덤 숫자
+        int attempt = 0;
+        //attempt = 시도 횟수
+        while ( attempt <8){
+            boolean isCorrect = play();
+            if(isCorrect){
+                break;
+            }
+            attempt = attempt +1 ;
+            System.out.println(attempt + "회 시도했습니다.");
+        }
+        System.out.println("게임을 종료합니다.");
+    }
+
+    public  static  boolean play(){
+        System.out.println("숫자를 입력하세요");
+        int input = scanner.nextInt();
+        //입력
+        if(input == randomNum){
+            System.out.println("정답");
+            return true;
+
+        }else  if(input > randomNum){
+            System.out.println("더 작아요");
+        }else {
+            System.out.println("더 커요");
+        }
+        return false;
+    }
+}
